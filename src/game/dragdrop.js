@@ -118,6 +118,28 @@ export function layoutAndBind({ playArea, pieces, onComplete }) {
     el.dataset.placed = 'true'
     sound.correct()
     target.classList.add('filled', 'pop-snap')
+
+    // Transfer the piece's color/appearance to the target hole
+    const pieceShape = el.querySelector('.shape')
+    const targetHole = target.querySelector('.shape-hole')
+    if (pieceShape && targetHole) {
+      const pieceColor = pieceShape.style.getPropertyValue('--c')
+      if (pieceColor) {
+        targetHole.style.setProperty('--c', pieceColor)
+      }
+    }
+
+    // For animal homes: show the matched animal nestled in its home
+    const pieceImg = el.querySelector('img')
+    const targetInner = target.querySelector('.target-inner')
+    if (pieceImg && targetInner && !target.querySelector('.animal-badge')) {
+      const badge = document.createElement('img')
+      badge.className = 'animal-badge'
+      badge.src = pieceImg.src
+      badge.alt = pieceImg.alt
+      badge.draggable = false
+      targetInner.appendChild(badge)
+    }
     setTimeout(() => {
       el.style.display = 'none'
       burst(r.left + r.width / 2 - p.left, r.top + r.height / 2 - p.top)
