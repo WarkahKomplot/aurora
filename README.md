@@ -6,84 +6,97 @@
 [![PWA Ready](https://img.shields.io/badge/PWA-Ready-brightgreen.svg?logo=pwa&logoColor=white)](https://web.dev/progressive-web-apps/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://makeapullrequest.com)
 
-🎮 **Play Live:** [https://warkahkomplot.github.io/aurora/](https://warkahkomplot.github.io/aurora/)
+🎮 **Play Live Now:** [https://warkahkomplot.github.io/aurora/](https://warkahkomplot.github.io/aurora/)
 
-**Aurora** is a free, open-source, ad-free drag-and-drop learning game designed specifically for toddlers and young children. Built as a Progressive Web App (PWA), Aurora works seamlessly on tablets, phones, and desktops — online or completely offline.
+**Aurora** is a free, open-source, ad-free toddler learning and sorting game built as a Progressive Web App (PWA). Designed with warm cartoon aesthetics, forgiving touch interactions, and zero punitive feedback, Aurora helps toddlers and young children learn geometric shapes, colors, and animal habitats through delightful play.
+
+Works completely offline on iOS, Android, and Desktop.
 
 ---
 
-## 🎮 Game Worlds
+## 🎮 Game Worlds (60 Levels Total)
 
 ### 🔷 Shape World (30 Levels)
-Explores **19 geometric shapes** across progressive learning modes:
+Explores **19 geometric shapes** through progressive developmental milestones:
 * **Shapes Included**: Circle, oval, square, rectangle, triangle, diamond, star, heart, crescent, pentagon, hexagon, heptagon, octagon, nonagon, decagon, cross, arrow, trapezoid, and parallelogram.
-* **Modes**: Shape-matching, color-matching, and combined shape + color challenges.
+* **Modes**:
+  1. **Shape-Matching**: Dragging shapes into matching silhouette cutouts.
+  2. **Color-Matching**: Sorting shapes into matching color-coded bins.
+  3. **Combined Shape & Color**: Advanced matching of both shape and tint.
 
 ### 🐾 Animal Homes (30 Levels)
-Helps children connect **24 animals** with their natural habitats and homes:
+Helps toddlers connect **24 friendly animals** with their natural habitats:
 * **Animals**: Bird, bear, rabbit, fish, bee, squirrel, dog, cat, fox, owl, duck, frog, hen, cow, horse, sheep, pig, turtle, snail, ant, mole, mouse, hedgehog, and penguin.
-* **Habitats**: Nests, caves, burrows, ponds, hives, doghouses, stables, lily pads, icebergs, and more.
+* **Habitats**: Nests, caves, burrows, ponds, hives, doghouses, stables, lily pads, icebergs, anthills, and more.
+* **Habitat Badges**: When an animal finds its home, a happy circular badge appears nestled right on the habitat!
 
 ---
 
-## ✨ Toddler-Friendly Design Principles
+## ✨ Toddler-First Design & Game Feel
 
-* **No Ads, No Trackers**: 100% private and distraction-free.
-* **Positive Reinforcement**: No countdown timers, penalty screens, or punitive "wrong" feedback.
-* **Forgiving Hitboxes**: Built with generous touch magnets tailored for little fingers.
-* **Smooth Physics**: Powered by CSS `translate3d` hardware acceleration and standard Pointer Events.
-* **Dynamic Audio**: Gentle synthesized chimes using Web Audio API (zero bulky external audio files).
+* 🚫 **No Ads, Trackers, or In-App Purchases**: 100% private, safe, and distraction-free.
+* 🌈 **Positive Reinforcement Only**: No countdown timers, no penalty buzzers, and no "game over" screens.
+* 🧲 **Forgiving Hitboxes**: Generous 28px magnetic snap tolerance engineered for little fingers.
+* 🎨 **Dynamic Color Snap**: Dropping a shape into an empty cutout instantly lights up the target with the vibrant color and solid shape of the piece.
+* 🔊 **Parent Mute Controls**: Includes a one-tap `🔊` / `🔇` toggle button with persistent `localStorage` memory.
+* 🎵 **Synthesized Sound Effects**: Built entirely on the Web Audio API—zero bulky audio downloads, instant playback, zero lag.
+* 🪶 **Animated Guide Mascot**: The friendly owl floats and breathes on the home screen, wiggles, and celebrates victories with children.
+* 👑 **Grand Champion Finales**: 
+  * Completing Level 30 crowns the player as the **World Champion** with a special audio fanfare and golden crown on the owl guide.
+  * Clearing all 60 levels unlocks the **Grand Aurora Champion** screen with a rainbow ribbon, massive confetti cascade, and a permanent golden title banner!
 
 ---
 
-## 🚀 Getting Started
+## 📱 Progressive Web App (PWA) — Install on Any Device
+
+Aurora runs directly in the browser and can be installed as a native-feeling standalone app that works with or without an internet connection:
+
+* **Android (Chrome)**: Open the [live link](https://warkahkomplot.github.io/aurora/), tap the three dots or prompt, and tap **"Install App"** / **"Add to Home screen"**.
+* **iOS (Safari)**: Open the [live link](https://warkahkomplot.github.io/aurora/), tap the **Share** button at the bottom, and select **"Add to Home Screen"**.
+* **Desktop (Chrome/Edge/Brave)**: Click the **Install** button in the URL bar to launch Aurora in its own dedicated window.
+
+---
+
+## 🚀 Local Development
 
 ### Prerequisites
 
-* [Node.js](https://nodejs.org/) (version 18+ recommended)
+* [Node.js](https://nodejs.org/) (version 18 or newer)
 * `npm` (or `pnpm` / `yarn`)
 
-### Installation & Development
+### Getting Started
 
 ```bash
-# Clone repository
+# 1. Clone the repository
 git clone https://github.com/WarkahKomplot/aurora.git
 cd aurora
 
-# Install dependencies
+# 2. Install dependencies
 npm install
 
-# Start local development server
+# 3. Start local development server (with Hot Module Replacement)
 npm run dev
 ```
 
-Open your browser at `http://localhost:5173/` to play.
+Open your browser at `http://localhost:5173/` to play and test changes in real time.
 
 ### Production Build
 
 ```bash
-# Compile and bundle to dist/
+# Build the optimized production bundle
 npm run build
 
-# Preview production build locally
+# Preview the production build locally
 npm run preview
 ```
 
-The output in `dist/` is completely static and ready to host anywhere.
+The production output in `dist/` is completely static, precached by Workbox, and ready to host anywhere.
 
 ---
 
-## 📱 Installing on Devices (PWA)
+## 🎨 Procedural Art Generation
 
-* **Android (Chrome)**: Visit your deployed URL and tap **"Install App"** or **"Add to Home screen"**.
-* **iOS (Safari)**: Visit the URL in Safari, tap the **Share** button, and select **"Add to Home Screen"**.
-* **Desktop (Chrome/Edge)**: Click the install icon in the address bar to install as a standalone desktop app.
-
----
-
-## 🎨 Artwork Generation
-
-All artwork in `public/art/` and `public/icons/` is 100% original and generated procedurally using Python and Pillow:
+All artwork in `public/art/` and `public/icons/` is 100% original, open, and reproducible via Python's Pillow library without any external copyrighted assets:
 
 ```bash
 pip install pillow
@@ -92,55 +105,48 @@ python scripts/generate_art.py
 
 ---
 
-## 🛠️ Tech Stack & Architecture
-
-* **Bundler & Core**: [Vite](https://vitejs.dev/) + Modern Vanilla JavaScript (ES Modules)
-* **PWA Engine**: [vite-plugin-pwa](https://vite-pwa-org.netlify.app/) with Workbox for automatic cache & offline support
-* **UI & Layout**: Modern CSS Grid and Flexbox with responsive typography (`clamp`)
-* **Audio**: Native Web Audio API synthesizer
-* **State & Progress**: Browser `localStorage` for star ratings
+## 🛠️ Architecture & Tech Stack
 
 ```text
 aurora/
-├── .github/workflows/deploy.yml   # Automatic GitHub Pages CI/CD
+├── .github/
+│   └── workflows/
+│       └── deploy.yml        # Automatic GitHub Pages CI/CD workflow
 ├── public/
-│   ├── art/                       # Procedurally generated PNG artwork
-│   └── icons/                     # PWA icons
+│   ├── art/                  # 48+ Procedurally generated SVG/PNG sprites
+│   └── icons/                # PWA icons (192px, 512px, maskable)
 ├── scripts/
-│   └── generate_art.py            # Pillow art generator script
+│   └── generate_art.py       # Pillow script for regenerating all game artwork
 ├── src/
 │   ├── game/
-│   │   ├── audio.js               # Web Audio API chime generator
-│   │   ├── dragdrop.js            # Touch/Pointer drag-and-drop mechanics
-│   │   ├── levels.js              # Level configurations & geometric clip-paths
-│   │   └── progress.js            # Star progress persistence
+│   │   ├── audio.js          # Web Audio API synthesizers & mute state manager
+│   │   ├── dragdrop.js       # Touch & Pointer physics, hit detection, snapping
+│   │   ├── levels.js         # 60 level configurations, shape clip-paths, & palettes
+│   │   └── progress.js       # LocalStorage star progression system
 │   ├── ui/
-│   │   └── screens.js             # Menu, world select, game board, victory screens
-│   ├── main.js                    # Application orchestrator
-│   └── styles.css                 # Responsive game styling
-├── index.html                     # HTML5 entry with PWA meta tags
-├── vite.config.js                 # Vite + PWA configuration
+│   │   └── screens.js        # Home menu, world grids, game board, & grand finale screens
+│   ├── main.js               # Application state machine & orchestrator
+│   └── styles.css            # Fredoka typography, animations, candy pills, & layout
+├── index.html                # HTML5 entry with PWA manifest & viewport meta tags
+├── vite.config.js            # Vite bundler & vite-plugin-pwa configuration
 └── package.json
 ```
 
 ---
 
-## 🚢 Publishing to GitHub & GitHub Pages
+## 🌐 Deploying to GitHub Pages
 
-1. **Create a GitHub repository** named `aurora`.
-2. **Push your code**:
-   ```bash
-   git remote add origin git@github.com:WarkahKomplot/aurora.git
-   git branch -M main
-   git push -u origin main
-   ```
-3. **Enable GitHub Pages**:
-   * In your repository, go to **Settings** > **Pages**.
-   * Under **Build and deployment** > **Source**, select **GitHub Actions**.
-   * The included `.github/workflows/deploy.yml` workflow will automatically build and publish your game on every push to `main`!
+This repository includes a continuous deployment workflow in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
+
+To activate it:
+1. Go to your repository **Settings** > **Pages**.
+2. Under **Build and deployment** > **Source**, select **GitHub Actions**.
+3. Every push to the `main` branch will automatically compile, test, and deploy to:  
+   👉 **`https://warkahkomplot.github.io/aurora/`**
 
 ---
 
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
+Feel free to fork, customize, or contribute toddler-friendly improvements!
