@@ -44,7 +44,7 @@ Helps children connect **24 animals** with their natural habitats and homes:
 
 ```bash
 # Clone repository
-git clone https://github.com/<your-username>/aurora.git
+git clone https://github.com/WarkahKomplot/aurora.git
 cd aurora
 
 # Install dependencies
@@ -127,7 +127,7 @@ aurora/
 1. **Create a GitHub repository** named `aurora`.
 2. **Push your code**:
    ```bash
-   git remote add origin https://github.com/<your-username>/aurora.git
+   git remote add origin git@github.com:WarkahKomplot/aurora.git
    git branch -M main
    git push -u origin main
    ```
