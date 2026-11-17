@@ -78,7 +78,7 @@ export function layoutAndBind({ playArea, pieces, onComplete }) {
     y = Math.max(2, Math.min(y, p.height - active.el.offsetHeight - 2))
     active.x = x
     active.y = y
-    active.el.style.transform = `translate3d(${x}px, ${y}px, 0) scale(1.08)`
+    active.el.style.transform = `translate3d(${x}px, ${y}px, 0) scale(1.12)`
     clearHighlights()
     const hit = targetAt(x + active.el.offsetWidth / 2, y + active.el.offsetHeight / 2)
     if (hit) hit.classList.add('over')
@@ -99,10 +99,10 @@ export function layoutAndBind({ playArea, pieces, onComplete }) {
     if (hit && hit.dataset.key === el.dataset.key) {
       place(el, hit)
     } else {
-      el.style.transition = 'transform 340ms cubic-bezier(.34,1.56,.64,1)'
+      el.style.transition = 'transform 360ms cubic-bezier(.34,1.56,.64,1)'
       el.style.transform = `translate3d(${active.homeX}px, ${active.homeY}px, 0)`
       sound.wrong()
-      setTimeout(() => { el.style.transition = '' }, 360)
+      setTimeout(() => { el.style.transition = '' }, 380)
     }
     active = null
   }
@@ -112,12 +112,12 @@ export function layoutAndBind({ playArea, pieces, onComplete }) {
     const r = target.getBoundingClientRect()
     const x = r.left - p.left + (r.width - el.offsetWidth) / 2
     const y = r.top - p.top + (r.height - el.offsetHeight) / 2
-    el.style.transition = 'transform 280ms cubic-bezier(.2,.9,.3,1.2), opacity 220ms'
+    el.style.transition = 'transform 260ms cubic-bezier(.2,.9,.3,1.2), opacity 200ms'
     el.style.transform = `translate3d(${x}px, ${y}px, 0) scale(.55)`
     el.style.opacity = '0'
     el.dataset.placed = 'true'
     sound.correct()
-    target.classList.add('filled')
+    target.classList.add('filled', 'pop-snap')
     setTimeout(() => {
       el.style.display = 'none'
       burst(r.left + r.width / 2 - p.left, r.top + r.height / 2 - p.top)
@@ -127,19 +127,21 @@ export function layoutAndBind({ playArea, pieces, onComplete }) {
   }
 
   function burst(x, y) {
-    const colors = ['#ff5252', '#ffd740', '#69f0ae', '#40c4ff', '#e040fb']
-    for (let i = 0; i < 14; i++) {
+    const colors = ['#ff5252', '#ffd740', '#69f0ae', '#40c4ff', '#e040fb', '#ff9100']
+    for (let i = 0; i < 18; i++) {
       const s = document.createElement('div')
       s.className = 'spark'
       s.style.background = colors[i % colors.length]
+      s.style.borderRadius = Math.random() > 0.4 ? '50%' : '3px'
       s.style.left = `${x}px`
       s.style.top = `${y}px`
       playArea.appendChild(s)
-      const angle = (Math.PI * 2 * i) / 14
-      const dist = 55 + Math.random() * 75
+      const angle = (Math.PI * 2 * i) / 18 + (Math.random() - 0.5) * 0.3
+      const dist = 50 + Math.random() * 85
+      const rot = (Math.random() - 0.5) * 360
       const anim = s.animate([
-        { transform: 'translate(0,0) scale(1)', opacity: 1 },
-        { transform: `translate(${Math.cos(angle) * dist}px, ${Math.sin(angle) * dist}px) scale(0)`, opacity: 0 }
+        { transform: 'translate(0,0) scale(1) rotate(0deg)', opacity: 1 },
+        { transform: `translate(${Math.cos(angle) * dist}px, ${Math.sin(angle) * dist}px) scale(0) rotate(${rot}deg)`, opacity: 0 }
       ], { duration: 650, easing: 'cubic-bezier(.2,.7,.3,1)' })
       anim.onfinish = () => s.remove()
     }

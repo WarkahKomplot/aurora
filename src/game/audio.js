@@ -1,4 +1,21 @@
 let ctx = null
+const MUTE_KEY = 'aurora-sound-muted'
+let muted = localStorage.getItem(MUTE_KEY) === 'true'
+
+export function isMuted() {
+  return muted
+}
+
+export function setMuted(val) {
+  muted = Boolean(val)
+  localStorage.setItem(MUTE_KEY, muted ? 'true' : 'false')
+  window.dispatchEvent(new CustomEvent('aurora-mute-change', { detail: { muted } }))
+  return muted
+}
+
+export function toggleMute() {
+  return setMuted(!muted)
+}
 
 export function unlockAudio() {
   const AC = window.AudioContext || window.webkitAudioContext
@@ -15,7 +32,7 @@ export function unlockAudio() {
 }
 
 function tone(freq, duration, type = 'sine', volume = 0.2, delay = 0) {
-  if (!ctx) return
+  if (muted || !ctx) return
   const t = ctx.currentTime + delay
   const osc = ctx.createOscillator()
   const gain = ctx.createGain()
