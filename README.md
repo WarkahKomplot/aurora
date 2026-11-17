@@ -1,9 +1,12 @@
 # 🌟 Aurora
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Play_Now-brightgreen.svg?logo=googlechrome&logoColor=white)](https://warkahkomplot.github.io/aurora/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Vite](https://img.shields.io/badge/Vite-5.x-646CFF.svg?logo=vite&logoColor=white)](https://vitejs.dev/)
 [![PWA Ready](https://img.shields.io/badge/PWA-Ready-brightgreen.svg?logo=pwa&logoColor=white)](https://web.dev/progressive-web-apps/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://makeapullrequest.com)
+
+🎮 **Play Live:** [https://warkahkomplot.github.io/aurora/](https://warkahkomplot.github.io/aurora/)
 
 **Aurora** is a free, open-source, ad-free drag-and-drop learning game designed specifically for toddlers and young children. Built as a Progressive Web App (PWA), Aurora works seamlessly on tablets, phones, and desktops — online or completely offline.
 
