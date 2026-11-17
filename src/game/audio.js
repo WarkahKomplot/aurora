@@ -50,5 +50,15 @@ export const sound = {
   pickup: () => tone(520, 0.12, 'sine', 0.12),
   correct: () => { tone(660, 0.15); tone(880, 0.18, 'sine', 0.18, 0.09) },
   wrong: () => tone(200, 0.14, 'sine', 0.06),
-  win: () => [523, 659, 784, 1046].forEach((f, i) => tone(f, 0.28, 'sine', 0.18, i * 0.13))
+  win: () => [523, 659, 784, 1046].forEach((f, i) => tone(f, 0.28, 'sine', 0.18, i * 0.13)),
+  champion: () => {
+    const notes = [523, 659, 784, 1046, 1318, 1568]
+    notes.forEach((f, i) => tone(f, 0.32, 'sine', 0.2, i * 0.11))
+    setTimeout(() => {
+      tone(1046, 0.6, 'sine', 0.16)
+      tone(1318, 0.6, 'sine', 0.16)
+      tone(1568, 0.6, 'sine', 0.16)
+      tone(2093, 0.6, 'sine', 0.14)
+    }, 700)
+  }
 }

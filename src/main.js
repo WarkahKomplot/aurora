@@ -28,7 +28,12 @@ const c = {
       playArea: app.querySelector('#play-area'),
       pieces: [...app.querySelectorAll('.piece')],
       onComplete() {
-        sound.win()
+        const isFinal = currentIndex + 1 >= levels[level.world].length
+        if (isFinal) {
+          sound.champion()
+        } else {
+          sound.win()
+        }
         setLevelStars(level.id, 3)
         setTimeout(() => renderComplete(app, level, c), 950)
       }
